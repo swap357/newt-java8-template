@@ -31,6 +31,8 @@ RUN chmod +x /usr/bin/fwatchdog
 
 RUN addgroup -S app && adduser -S -g app app
 WORKDIR /home/app
+
+FROM openjdk:8u212-jdk-alpine
 COPY --from=builder /home/app/entrypoint/build/distributions/entrypoint-1.0.zip ./entrypoint-1.0.zip
 RUN unzip ./entrypoint-1.0.zip
 
